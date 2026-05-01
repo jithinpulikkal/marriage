@@ -62,6 +62,25 @@ export default function Layout() {
                     <span />
                     <span />
                 </div>
+                <div className="reactor-core">
+                    <span className="reactor-ring reactor-ring-one" />
+                    <span className="reactor-ring reactor-ring-two" />
+                    <span className="reactor-ring reactor-ring-three" />
+                    <span className="reactor-dot" />
+                </div>
+                <div className="hud-readout hud-readout-left">
+                    <span>INVITE.OS</span>
+                    <strong>ONLINE</strong>
+                </div>
+                <div className="hud-readout hud-readout-right">
+                    <span>CEREMONY CORE</span>
+                    <strong>STABLE</strong>
+                </div>
+                <div className="mobile-command-stack">
+                    <span>HOLO UI</span>
+                    <span>BLESSING LINK</span>
+                    <span>EVENT SYNC</span>
+                </div>
             </div>
             <FuturisticParticles />
 

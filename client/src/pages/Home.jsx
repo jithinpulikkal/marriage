@@ -1,10 +1,7 @@
 ﻿import { useEffect, useState } from "react";
 import SectionHeader from "../components/SectionHeader.jsx";
-import IllustrationCard from "../components/IllustrationCard.jsx";
 import DetailCard, { buildDetailCards, buildWelcomeCards, buildVenueCards } from "../components/DetailCard.jsx";
 import weddingData from "../data/weddingData.js";
-import brideGroomImage from "../assets/bridegroom.jpg";
-import templeImage from "../assets/temple.png";
 import Reveal from "../components/Reveal.jsx";
 
 const WEDDING_TARGET = new Date("2026-09-12T10:45:00+05:30").getTime();
@@ -48,9 +45,7 @@ export default function Home() {
     const welcomeCards = buildWelcomeCards(weddingData);
     const venueCards = buildVenueCards(weddingData);
 
-    const [heroReady, setHeroReady] = useState(false);
     const [countdown, setCountdown] = useState(() => getCountdownParts(WEDDING_TARGET));
-    const handleHeroReady = () => setHeroReady(true);
 
     useEffect(() => {
         const intervalId = window.setInterval(() => {
@@ -103,36 +98,27 @@ export default function Home() {
 
     return (
         <div id="top" className="space-y-16 pb-16 sm:space-y-20">
-            <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:gap-12 sm:px-5 sm:pt-10 lg:grid-cols-[1.1fr_0.9fr]">
-                <div className="min-w-0 space-y-6 sm:space-y-4">
-                    <div className="data-chip inline-flex items-center rounded-full px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.42em] text-cyan/90">
+            <section className="mx-auto max-w-6xl px-4 sm:px-5 sm:pt-10">
+                <div className="mx-auto max-w-4xl min-w-0 space-y-6 text-center sm:space-y-4">
+                    <div className="data-chip stark-chip inline-flex items-center rounded-full px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.42em] text-cyan/90">
                         {invitation.title}
                     </div>
                     <p className="break-words text-sm uppercase tracking-[0.28em] text-gold sm:text-base sm:tracking-[0.36em]">{brand.subtitle}</p>
-
-                    <div className="lg:hidden">
-                        <IllustrationCard
-                            title="Bride & Groom"
-                            subtitle="Traditional Kerala wedding portrait"
-                            imageSrc={brideGroomImage}
-                            imageAlt="Bride and groom illustration"
-                            imageLoading="eager"
-                            onImageLoad={handleHeroReady}
-                            onImageError={handleHeroReady}
-                            animateImage={false}
-                        />
-                    </div>
-                    <p className="max-w-2xl text-base leading-relaxed text-teak/82 sm:text-xl">{invitation.message}</p>
+                    <p className="mx-auto max-w-2xl text-base leading-relaxed text-teak/82 sm:text-xl">{invitation.message}</p>
                     <Reveal animation="scaleIn">
-                        <div className="glass-panel neon-outline cyber-frame holo-sweep relative overflow-hidden rounded-[2rem] px-6 py-8 sm:px-8 sm:py-10">
+                        <div className="glass-panel neon-outline cyber-frame holo-sweep stark-panel relative overflow-hidden rounded-[2rem] px-6 py-8 sm:px-8 sm:py-10">
                             <div className="absolute inset-0 bg-[linear-gradient(135deg,_rgba(255,176,79,0.12),_transparent_30%),linear-gradient(315deg,_rgba(77,220,255,0.18),_transparent_38%)]" />
                             <div className="absolute inset-0 bg-mesh-grid bg-[length:42px_42px] opacity-20" />
                             <div className="absolute left-6 right-6 top-5 h-px bg-gradient-to-r from-transparent via-cyan/70 to-transparent" />
                             <div className="absolute bottom-5 left-6 right-6 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
-                            {heroReady ? (
-                                <Reveal animation="fadeInSlow">
+                            <div className="mini-reactor absolute right-5 top-5 hidden sm:block">
+                                <span />
+                                <span />
+                                <span />
+                            </div>
+                            <Reveal animation="fadeInSlow">
                                     <div className="relative">
-                                        <p className="text-[0.72rem] font-semibold uppercase tracking-[0.48em] text-cyan/80">Ceremony Protocol</p>
+                                        <p className="text-[0.72rem] font-semibold uppercase tracking-[0.48em] text-cyan/80">Holographic Ceremony Interface</p>
                                         <h1 className="holo-title min-w-0 pt-4 text-center font-serif text-4xl font-bold uppercase leading-tight tracking-[0.08em] text-maroon sm:text-5xl lg:text-6xl">
                                             <span className="glitch-text block break-words" data-text={couple.bride.name}>
                                                 {couple.bride.name}
@@ -158,23 +144,45 @@ export default function Home() {
                                                 ["RITUAL", "KERALA MODE"],
                                                 ["FAMILY", "SYNCED"],
                                             ].map(([label, value]) => (
-                                                <div key={label} className="data-chip rounded-xl px-4 py-3">
+                                                <div key={label} className="data-chip stark-chip rounded-xl px-4 py-3">
                                                     <p className="text-[0.58rem] font-semibold uppercase tracking-[0.32em] text-cyan/60">{label}</p>
                                                     <p className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-gold">{value}</p>
                                                 </div>
                                             ))}
                                         </div>
+                                    <div className="stark-console mt-5 grid gap-2 text-left sm:grid-cols-[1fr_auto]">
+                                        <div>
+                                            <p className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-cyan/60">Primary Directive</p>
+                                            <p className="mt-1 text-sm font-semibold text-teak/80">Celebrate love, family, and the muhurtham.</p>
+                                        </div>
+                                        <div className="self-center text-right font-serif text-lg font-bold text-gold">100%</div>
                                     </div>
-                                </Reveal>
-                            ) : (
-                                <div className="h-[7.5rem] sm:h-[8.5rem] md:h-[9.5rem]" />
-                            )}
+                                    <div className="stark-diagnostics mt-5 grid gap-3 text-left sm:grid-cols-2">
+                                        {[
+                                            ["Signal Integrity", "99.8%", "bg-cyan/70"],
+                                            ["Family Matrix", "LINKED", "bg-gold/70"],
+                                            ["Muhurtham Lock", "10:45", "bg-rose/70"],
+                                            ["Route Assist", "READY", "bg-cyan/70"],
+                                        ].map(([label, value, barClass]) => (
+                                            <div key={label} className="diagnostic-cell">
+                                                <div className="flex items-center justify-between gap-3">
+                                                    <span>{label}</span>
+                                                    <strong>{value}</strong>
+                                                </div>
+                                                <div className="mt-2 h-1 overflow-hidden rounded-full bg-cyan/10">
+                                                    <div className={`h-full w-4/5 rounded-full ${barClass}`} />
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </Reveal>
                         </div>
                     </Reveal>
 
-                    <p className="max-w-2xl pt-2 text-base text-teak/72 sm:text-lg">{brand.tagline}</p>
+                    <p className="mx-auto max-w-2xl pt-2 text-base text-teak/72 sm:text-lg">{brand.tagline}</p>
                     <Reveal animation="scaleIn">
-                        <div className="glass-panel neon-outline cyber-frame relative overflow-hidden rounded-[1.75rem] p-5 sm:p-6">
+                        <div className="glass-panel neon-outline cyber-frame stark-panel relative overflow-hidden rounded-[1.75rem] p-5 sm:p-6">
                             <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gold/80 via-cyan/80 to-rose/80" />
                             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.42em] text-cyan/80">{events.wedding.title}</p>
                             <p className="mt-4 font-serif text-2xl uppercase tracking-[0.12em] text-maroon sm:text-3xl">{events.wedding.dateText}</p>
@@ -201,24 +209,10 @@ export default function Home() {
                         </div>
                     </Reveal>
                 </div>
-                <div className="min-w-0 self-stretch hidden lg:block">
-                    <IllustrationCard
-                        title="Bride & Groom"
-                        subtitle="Traditional Kerala wedding portrait"
-                        imageSrc={brideGroomImage}
-                        imageAlt="Bride and groom illustration"
-                        imageLoading="eager"
-                        onImageLoad={handleHeroReady}
-                        onImageError={handleHeroReady}
-                        className="h-full"
-                        fillImage
-                        animateImage={false}
-                    />
-                </div>
             </section>
             <section className="mx-auto max-w-6xl px-5">
                 <Reveal animation="scaleIn">
-                    <div className="glass-panel neon-outline cyber-frame relative overflow-hidden rounded-[2rem] p-5 sm:p-7">
+                    <div className="glass-panel neon-outline cyber-frame stark-panel relative overflow-hidden rounded-[2rem] p-5 sm:p-7">
                         <div className="absolute inset-0 bg-mesh-grid bg-[length:32px_32px] opacity-20" />
                         <div className="text-center">
                             <p className="text-xs font-semibold uppercase tracking-[0.42em] text-cyan/80 sm:text-sm">Countdown</p>
@@ -280,22 +274,10 @@ export default function Home() {
             <section id="details" className="mx-auto max-w-6xl px-5">
                 <SectionHeader eyebrow="Wedding Details" title="A Cinematic Kerala Celebration" description={ceremony.intro} />
 
-                <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-5">
-                    <div className="lg:col-span-3 lg:self-stretch">
-                        <IllustrationCard
-                            title="Temple Visual"
-                            subtitle="Kerala temple ambience"
-                            imageSrc={templeImage}
-                            imageAlt="Kerala temple illustration"
-                            className="h-full"
-                        />
-                    </div>
-
-                    <div className="lg:col-span-2 grid gap-6 auto-rows-fr">
-                        {detailCards.map((card) => (
-                            <DetailCard key={card.key} {...card} className="h-full" />
-                        ))}
-                    </div>
+                <div className="mt-10 grid gap-6 md:grid-cols-3 md:auto-rows-fr">
+                    {detailCards.map((card) => (
+                        <DetailCard key={card.key} {...card} className="h-full" />
+                    ))}
                 </div>
             </section>
 
