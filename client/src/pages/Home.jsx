@@ -189,7 +189,7 @@ export default function Home() {
                             <p className="mt-3 font-serif text-2xl uppercase tracking-[0.12em] text-maroon sm:text-3xl">{events.wedding.timeText}</p>
                             <p className="mt-3 text-lg font-semibold uppercase tracking-[0.18em] text-gold">{events.wedding.muhurthamText}</p>
                             <p className="mt-3 text-base leading-relaxed text-teak/80">{events.wedding.description}</p>
-                            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                            <div className="mt-6 flex flex-col gap-3 sm:flex-row justify-between">
                                 <a
                                     href={googleCalendarLink}
                                     target="_blank"
