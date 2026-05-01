@@ -155,26 +155,8 @@ export default function Home() {
                                             <p className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-cyan/60">Primary Directive</p>
                                             <p className="mt-1 text-sm font-semibold text-teak/80">Celebrate love, family, and the muhurtham.</p>
                                         </div>
-                                        <div className="self-center text-right font-serif text-lg font-bold text-gold">100%</div>
                                     </div>
-                                    <div className="stark-diagnostics mt-5 grid gap-3 text-left sm:grid-cols-2">
-                                        {[
-                                            ["Signal Integrity", "99.8%", "bg-cyan/70"],
-                                            ["Family Matrix", "LINKED", "bg-gold/70"],
-                                            ["Muhurtham Lock", "10:45", "bg-rose/70"],
-                                            ["Route Assist", "READY", "bg-cyan/70"],
-                                        ].map(([label, value, barClass]) => (
-                                            <div key={label} className="diagnostic-cell">
-                                                <div className="flex items-center justify-between gap-3">
-                                                    <span>{label}</span>
-                                                    <strong>{value}</strong>
-                                                </div>
-                                                <div className="mt-2 h-1 overflow-hidden rounded-full bg-cyan/10">
-                                                    <div className={`h-full w-4/5 rounded-full ${barClass}`} />
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
+                                   
                                 </div>
                             </Reveal>
                         </div>
