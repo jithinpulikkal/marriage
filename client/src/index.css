@@ -1,0 +1,361 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --parchment-rgb: 246 244 255;
+  --ivory-rgb: 228 236 252;
+  --surface-rgb: 255 255 255;
+  --gold-rgb: 255 176 79;
+  --maroon-rgb: 29 31 74;
+  --rose-rgb: 255 126 184;
+  --sage-rgb: 111 202 255;
+  --teak-rgb: 54 65 99;
+  --cyan-rgb: 77 220 255;
+  --shadow-rgb: 16 22 56;
+}
+
+html.dark {
+  color-scheme: dark;
+  --parchment-rgb: 7 12 30;
+  --ivory-rgb: 12 18 42;
+  --surface-rgb: 18 28 56;
+  --gold-rgb: 255 194 107;
+  --maroon-rgb: 243 247 255;
+  --rose-rgb: 255 146 198;
+  --sage-rgb: 136 224 255;
+  --teak-rgb: 193 212 255;
+  --cyan-rgb: 116 232 255;
+  --shadow-rgb: 0 3 20;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+  scrollbar-width: none;
+  overflow-x: clip;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  background-color: rgb(var(--parchment-rgb));
+  color: rgb(var(--teak-rgb));
+  scrollbar-width: none;
+  overflow-x: clip;
+  transition: background-color 250ms ease, color 250ms ease;
+  background-image:
+    radial-gradient(circle at 20% 0%, rgb(var(--gold-rgb) / 0.12), transparent 30%),
+    radial-gradient(circle at 85% 10%, rgb(var(--cyan-rgb) / 0.14), transparent 24%),
+    linear-gradient(180deg, rgb(var(--parchment-rgb)) 0%, rgb(var(--ivory-rgb)) 52%, rgb(var(--surface-rgb)) 100%);
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgb(var(--gold-rgb) / 0.3);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.ornate-panel {
+  position: relative;
+  background: linear-gradient(180deg, rgb(var(--surface-rgb) / 0.78) 0%, rgb(var(--ivory-rgb) / 0.82) 100%);
+  border: 1px solid rgb(var(--cyan-rgb) / 0.22);
+  box-shadow: 0 20px 55px rgb(var(--shadow-rgb) / 0.18);
+  backdrop-filter: blur(22px);
+}
+
+.ornate-panel::before,
+.ornate-panel::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(var(--cyan-rgb) / 0.42), transparent);
+  opacity: 0.9;
+}
+
+.ornate-panel::before {
+  top: 20px;
+}
+
+.ornate-panel::after {
+  bottom: 20px;
+}
+
+.scallop-divider {
+  position: relative;
+}
+
+.scallop-divider::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -18px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(var(--gold-rgb) / 0.3), transparent);
+}
+
+.garland {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: rgb(var(--gold-rgb));
+  font-size: 18px;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+}
+
+.garland::before,
+.garland::after {
+  content: "</>";
+  font-size: 14px;
+  color: rgb(var(--cyan-rgb));
+}
+
+.temple-border {
+  border: 1px solid rgb(var(--cyan-rgb) / 0.22);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08);
+}
+
+.theme-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.theme-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgb(var(--gold-rgb) / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--cyan-rgb) / 0.06) 1px, transparent 1px);
+  background-size: 84px 84px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 92%);
+}
+
+.theme-shell::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 16%, rgb(var(--gold-rgb) / 0.15), transparent 0 24%),
+    radial-gradient(circle at 84% 10%, rgb(var(--cyan-rgb) / 0.14), transparent 0 22%),
+    radial-gradient(circle at 50% 34%, rgb(var(--rose-rgb) / 0.1), transparent 0 20%);
+  filter: blur(12px);
+}
+
+.glass-panel {
+  background: linear-gradient(180deg, rgb(var(--surface-rgb) / 0.72) 0%, rgb(var(--ivory-rgb) / 0.76) 100%);
+  border: 1px solid rgb(var(--cyan-rgb) / 0.18);
+  box-shadow:
+    0 22px 60px rgb(var(--shadow-rgb) / 0.2),
+    inset 0 1px 0 rgb(255 255 255 / 0.35);
+  backdrop-filter: blur(20px);
+}
+
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgb(255 255 255 / 0.2), transparent 36%, rgb(var(--cyan-rgb) / 0.08) 100%);
+  pointer-events: none;
+}
+
+.neon-outline {
+  position: relative;
+}
+
+.neon-outline::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgb(var(--gold-rgb) / 0.85), rgb(var(--cyan-rgb) / 0.6), rgb(var(--rose-rgb) / 0.65));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.flower-shell {
+  position: absolute;
+  top: -16%;
+  animation-name: flower-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.flower-shell::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgb(255 255 255 / 0.45) 0 10%, transparent 52%),
+    conic-gradient(from 180deg, rgb(101 223 255 / 0.18), transparent 30%, rgb(255 187 120 / 0.2) 62%, transparent 88%);
+  filter: blur(10px);
+  opacity: 0.85;
+}
+
+.flower {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 999px 999px 999px 0;
+  backdrop-filter: blur(3px);
+  border: 1px solid rgb(255 255 255 / 0.28);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.16),
+    0 0 24px rgb(107 214 255 / 0.14),
+    0 14px 28px rgb(var(--shadow-rgb) / 0.18);
+}
+
+.flower::before,
+.flower::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.flower-petal {
+  background:
+    radial-gradient(circle at 28% 24%, rgb(255 255 255 / 0.92) 0 14%, transparent 15%),
+    linear-gradient(180deg, rgb(255 231 184 / 0.82) 0%, rgb(255 139 117 / 0.7) 45%, rgb(79 206 255 / 0.52) 100%);
+}
+
+.flower-petal::before {
+  transform: rotate(42deg) scale(0.88);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.55), rgb(255 199 122 / 0.2) 52%, rgb(73 194 255 / 0.08)),
+    radial-gradient(circle at 34% 28%, rgb(255 255 255 / 0.88) 0 10%, transparent 11%);
+}
+
+.flower-petal::after {
+  inset: 18% 18% 18% 18%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.72), rgb(255 255 255 / 0.04));
+  filter: blur(2px);
+}
+
+.flower-blossom {
+  background:
+    radial-gradient(circle at 50% 50%, rgb(255 250 225 / 0.95) 0 14%, transparent 15%),
+    radial-gradient(circle at 50% 14%, rgb(255 141 112 / 0.78) 0 26%, transparent 27%),
+    radial-gradient(circle at 84% 50%, rgb(109 227 255 / 0.78) 0 26%, transparent 27%),
+    radial-gradient(circle at 50% 86%, rgb(255 211 109 / 0.78) 0 26%, transparent 27%),
+    radial-gradient(circle at 16% 50%, rgb(255 93 157 / 0.72) 0 26%, transparent 27%),
+    radial-gradient(circle at 50% 50%, rgb(255 255 255 / 0.32) 0 60%, transparent 61%);
+  border-radius: 50%;
+}
+
+.flower-blossom::before {
+  inset: 12%;
+  border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 0.24);
+  box-shadow: inset 0 0 18px rgb(255 255 255 / 0.2);
+}
+
+.flower-blossom::after {
+  inset: -10%;
+  border-radius: 50%;
+  border: 1px solid rgb(101 223 255 / 0.18);
+  transform: scale(1.12);
+}
+
+.flower-aura-coral {
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.16),
+    0 0 28px rgb(255 127 95 / 0.28),
+    0 14px 28px rgb(var(--shadow-rgb) / 0.18);
+}
+
+.flower-aura-gold {
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.16),
+    0 0 28px rgb(255 205 84 / 0.26),
+    0 14px 28px rgb(var(--shadow-rgb) / 0.18);
+}
+
+.flower-aura-cyan {
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.16),
+    0 0 32px rgb(92 214 255 / 0.3),
+    0 14px 28px rgb(var(--shadow-rgb) / 0.18);
+}
+
+.flower-aura-rose {
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.16),
+    0 0 28px rgb(255 128 185 / 0.24),
+    0 14px 28px rgb(var(--shadow-rgb) / 0.18);
+}
+
+@keyframes flower-fall {
+  0% {
+    transform: translate3d(0, -12vh, 0) rotate(0deg) scale(var(--flower-scale));
+  }
+
+  18% {
+    transform: translate3d(calc(var(--flower-sway) * -1), 18vh, 0) rotate(calc(var(--flower-rotate) * 0.3)) scale(calc(var(--flower-scale) + 0.08));
+  }
+
+  40% {
+    transform: translate3d(calc(var(--flower-drift) * 0.5), 42vh, 0) rotate(calc(var(--flower-rotate) * -0.2)) scale(calc(var(--flower-scale) + 0.14));
+  }
+
+  62% {
+    transform: translate3d(calc(var(--flower-drift) * -0.3), 66vh, 0) rotate(calc(var(--flower-rotate) * 0.72)) scale(calc(var(--flower-scale) + 0.04));
+  }
+
+  84% {
+    transform: translate3d(var(--flower-drift), 90vh, 0) rotate(calc(var(--flower-rotate) * 1.12)) scale(calc(var(--flower-scale) + 0.12));
+  }
+
+  100% {
+    transform: translate3d(calc(var(--flower-drift) * 0.25), 118vh, 0) rotate(calc(var(--flower-rotate) * 1.48)) scale(calc(var(--flower-scale) - 0.06));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flower-shell {
+    animation: none;
+    opacity: 0.12 !important;
+    transform: translate3d(0, 0, 0);
+  }
+}
