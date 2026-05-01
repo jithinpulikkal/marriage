@@ -8,7 +8,7 @@
 
     nav: {
         items: [
-            { label: "Home", hash: "#top" },
+            // { label: "Home", hash: "#top" },
             { label: "Wedding Details", hash: "#details" },
             { label: "Location", hash: "#location" },
         ],
