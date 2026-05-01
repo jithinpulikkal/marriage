@@ -9,7 +9,7 @@ export default function SectionHeader({ eyebrow, title, description }) {
                         {eyebrow}
                     </p>
                 )}
-                <h2 className="mt-4 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-maroon sm:text-5xl md:text-6xl leading-tight">
+                <h2 className="holo-title mt-4 font-serif text-3xl font-bold uppercase tracking-[0.12em] text-maroon sm:text-5xl md:text-6xl leading-tight">
                     {title}
                 </h2>
                 {description && (

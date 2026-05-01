@@ -10,11 +10,12 @@ export default function IllustrationCard({
     imageLoading,
     className = "",
     fillImage = false,
+    animateImage = true,
 }) {
     return (
         <Reveal animation="scaleIn" className={`h-full ${className}`.trim()}>
-            <div className="glass-panel neon-outline relative flex h-full overflow-hidden rounded-[2rem] border border-cyan/20 shadow-royal">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,176,79,0.18),_transparent_42%),radial-gradient(circle_at_bottom_right,_rgba(77,220,255,0.18),_transparent_35%)]" />
+            <div className="glass-panel neon-outline cyber-frame holo-sweep relative flex h-full overflow-hidden rounded-[2rem] border border-cyan/20 shadow-royal">
+                <div className="absolute inset-0 bg-[linear-gradient(140deg,_rgba(255,176,79,0.14),_transparent_38%),linear-gradient(320deg,_rgba(77,220,255,0.18),_transparent_35%)]" />
                 <div className="absolute inset-0 bg-mesh-grid bg-[length:32px_32px] opacity-25" />
                 <div
                     className={`relative flex h-full w-full flex-col items-center justify-center text-center ${
@@ -26,7 +27,9 @@ export default function IllustrationCard({
                             <img
                                 src={imageSrc}
                                 alt={imageAlt || title}
-                                className={`w-full border border-cyan/20 object-cover shadow-glow motion-safe:animate-slowZoom ${
+                                className={`w-full border border-cyan/20 object-cover shadow-glow ${
+                                    animateImage ? "motion-safe:animate-slowZoom" : ""
+                                } ${
                                     fillImage ? "h-full min-h-[28rem] rounded-[1.5rem]" : "h-full min-h-[18rem] rounded-[1.5rem]"
                                 }`}
                                 loading={imageLoading || "lazy"}

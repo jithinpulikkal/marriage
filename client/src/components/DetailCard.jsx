@@ -19,10 +19,11 @@ export function DetailCard({ eyebrow, title, subtitle, lines, mapLink, variant =
     return (
         <Reveal animation="scaleIn" className={`h-full ${className}`.trim()}>
             <div
-                className={`glass-panel neon-outline relative rounded-[1.75rem] border border-cyan/15 ${getCardClass(
+                className={`glass-panel neon-outline cyber-frame relative overflow-hidden rounded-[1.75rem] border border-cyan/15 ${getCardClass(
                     variant
                 )} flex h-full flex-col p-6 shadow-royal transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:p-7`}
             >
+                <div className="absolute inset-x-5 top-4 h-px bg-gradient-to-r from-transparent via-cyan/50 to-transparent" />
                 {isNonEmpty(eyebrow) ? (
                     <p className="font-body text-[0.7rem] font-semibold uppercase tracking-[0.42em] text-cyan/80">{eyebrow}</p>
                 ) : null}

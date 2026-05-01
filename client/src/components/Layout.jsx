@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
-import FallingFlowers from "./FallingFlowers.jsx";
+import FuturisticParticles from "./FuturisticParticles.jsx";
 
 export default function Layout() {
     const location = useLocation();
@@ -47,7 +47,23 @@ export default function Layout() {
 
     return (
         <div className="theme-shell flex min-h-screen flex-col bg-temple-pattern text-teak">
-            <FallingFlowers />
+            <div className="future-hud" aria-hidden="true">
+                <div className="hud-rail hud-rail-left" />
+                <div className="hud-rail hud-rail-right" />
+                <div className="hud-corner hud-corner-top-left" />
+                <div className="hud-corner hud-corner-top-right" />
+                <div className="hud-corner hud-corner-bottom-left" />
+                <div className="hud-corner hud-corner-bottom-right" />
+                <div className="orbit-field orbit-field-left">
+                    <span />
+                    <span />
+                </div>
+                <div className="orbit-field orbit-field-right">
+                    <span />
+                    <span />
+                </div>
+            </div>
+            <FuturisticParticles />
 
             <Navbar
                 activePath={location.pathname}
