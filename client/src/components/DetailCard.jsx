@@ -106,13 +106,6 @@ export function buildDetailCards(data) {
             subtitle: groom.parents,
             lines: normalizeLines([groom.address, groom.address1, groom.hometown]),
         },
-        {
-            key: "ceremony",
-            // title: ceremony.subtitle,
-            subtitle: ceremony.intro,
-            lines: normalizeLines([...(ceremony.details || []), ceremony.dressCode]),
-            variant: "parchment",
-        },
     ].filter((card) => card.title || (card.lines && card.lines.length));
 }
 

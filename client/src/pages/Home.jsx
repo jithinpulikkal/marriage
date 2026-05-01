@@ -32,7 +32,10 @@ function getCountdownParts(targetTime) {
 }
 
 function formatGoogleCalendarDate(timestamp) {
-    return new Date(timestamp).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
+    return new Date(timestamp)
+        .toISOString()
+        .replace(/[-:]/g, "")
+        .replace(/\.\d{3}Z$/, "Z");
 }
 
 function escapeIcsText(value) {
@@ -103,8 +106,12 @@ export default function Home() {
                     <div className="data-chip stark-chip inline-flex items-center rounded-full px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.42em] text-cyan/90">
                         {invitation.title}
                     </div>
-                    <p className="break-words text-sm uppercase tracking-[0.28em] text-gold sm:text-base sm:tracking-[0.36em]">{brand.subtitle}</p>
-                    <p className="mx-auto max-w-2xl text-base leading-relaxed text-teak/82 sm:text-xl">{invitation.message}</p>
+                    <p className="break-words text-sm uppercase tracking-[0.28em] text-gold sm:text-base sm:tracking-[0.36em]">
+                        {brand.subtitle}
+                    </p>
+                    <p className="mx-auto max-w-2xl text-base leading-relaxed text-teak/82 sm:text-xl">
+                        {invitation.message}
+                    </p>
                     <Reveal animation="scaleIn">
                         <div className="glass-panel neon-outline cyber-frame holo-sweep stark-panel relative overflow-hidden rounded-[2rem] px-6 py-8 sm:px-8 sm:py-10">
                             <div className="absolute inset-0 bg-[linear-gradient(135deg,_rgba(255,176,79,0.12),_transparent_30%),linear-gradient(315deg,_rgba(77,220,255,0.18),_transparent_38%)]" />
@@ -117,28 +124,32 @@ export default function Home() {
                                 <span />
                             </div>
                             <Reveal animation="fadeInSlow">
-                                    <div className="relative">
-                                        <p className="text-[0.72rem] font-semibold uppercase tracking-[0.48em] text-cyan/80">Holographic Ceremony Interface</p>
-                                        <h1 className="holo-title min-w-0 pt-4 text-center font-serif text-4xl font-bold uppercase leading-tight tracking-[0.08em] text-maroon sm:text-5xl lg:text-6xl">
-                                            <span className="glitch-text block break-words" data-text={couple.bride.name}>
-                                                {couple.bride.name}
+                                <div className="relative">
+                                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.48em] text-cyan/80">
+                                        Holographic Ceremony Interface
+                                    </p>
+                                    <h1 className="holo-title min-w-0 pt-4 text-center font-serif text-4xl font-bold uppercase leading-tight tracking-[0.08em] text-maroon sm:text-5xl lg:text-6xl">
+                                        <span className="glitch-text block break-words" data-text={couple.bride.name}>
+                                            {couple.bride.name}
+                                        </span>
+                                        <span className="my-3 block text-xl font-medium text-gold sm:text-2xl lg:text-3xl">
+                                            &
+                                        </span>
+                                        <span className="glitch-text block break-words" data-text={couple.groom.name}>
+                                            {couple.groom.name}
+                                        </span>
+                                    </h1>
+                                    <div className="mx-auto mt-6 grid max-w-xl grid-cols-3 gap-2 text-center">
+                                        {["12 Sep", "10:45 AM", "Kerala"].map((item) => (
+                                            <span
+                                                key={item}
+                                                className="data-chip rounded-full px-3 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-cyan/85"
+                                            >
+                                                {item}
                                             </span>
-                                            <span className="my-3 block text-xl font-medium text-gold sm:text-2xl lg:text-3xl">&</span>
-                                            <span className="glitch-text block break-words" data-text={couple.groom.name}>
-                                                {couple.groom.name}
-                                            </span>
-                                        </h1>
-                                        <div className="mx-auto mt-6 grid max-w-xl grid-cols-3 gap-2 text-center">
-                                            {["12 Sep", "10:45 AM", "Kerala"].map((item) => (
-                                                <span
-                                                    key={item}
-                                                    className="data-chip rounded-full px-3 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-cyan/85"
-                                                >
-                                                    {item}
-                                                </span>
-                                            ))}
-                                        </div>
-                                        <div className="mt-6 grid gap-2 text-left sm:grid-cols-3">
+                                        ))}
+                                    </div>
+                                    {/* <div className="mt-6 grid gap-2 text-left sm:grid-cols-3">
                                             {[
                                                 ["BLESSING", "ONLINE"],
                                                 ["RITUAL", "KERALA MODE"],
@@ -149,14 +160,17 @@ export default function Home() {
                                                     <p className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-gold">{value}</p>
                                                 </div>
                                             ))}
-                                        </div>
+                                        </div> */}
                                     <div className="stark-console mt-5 grid gap-2 text-left sm:grid-cols-[1fr_auto]">
                                         <div>
-                                            <p className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-cyan/60">Primary Directive</p>
-                                            <p className="mt-1 text-sm font-semibold text-teak/80">Celebrate love, family, and the muhurtham.</p>
+                                            <p className="text-[0.58rem] font-semibold uppercase tracking-[0.34em] text-cyan/60">
+                                                Primary Directive
+                                            </p>
+                                            <p className="mt-1 text-sm font-semibold text-teak/80">
+                                                Celebrate love, family, and the muhurtham.
+                                            </p>
                                         </div>
                                     </div>
-                                   
                                 </div>
                             </Reveal>
                         </div>
@@ -166,10 +180,18 @@ export default function Home() {
                     <Reveal animation="scaleIn">
                         <div className="glass-panel neon-outline cyber-frame stark-panel relative overflow-hidden rounded-[1.75rem] p-5 sm:p-6">
                             <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gold/80 via-cyan/80 to-rose/80" />
-                            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.42em] text-cyan/80">{events.wedding.title}</p>
-                            <p className="mt-4 font-serif text-2xl uppercase tracking-[0.12em] text-maroon sm:text-3xl">{events.wedding.dateText}</p>
-                            <p className="mt-3 font-serif text-2xl uppercase tracking-[0.12em] text-maroon sm:text-3xl">{events.wedding.timeText}</p>
-                            <p className="mt-3 text-lg font-semibold uppercase tracking-[0.18em] text-gold">{events.wedding.muhurthamText}</p>
+                            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.42em] text-cyan/80">
+                                {events.wedding.title}
+                            </p>
+                            <p className="mt-4 font-serif text-2xl uppercase tracking-[0.12em] text-maroon sm:text-3xl">
+                                {events.wedding.dateText}
+                            </p>
+                            <p className="mt-3 font-serif text-2xl uppercase tracking-[0.12em] text-maroon sm:text-3xl">
+                                {events.wedding.timeText}
+                            </p>
+                            <p className="mt-3 text-lg font-semibold uppercase tracking-[0.18em] text-gold">
+                                {events.wedding.muhurthamText}
+                            </p>
                             <p className="mt-3 text-base leading-relaxed text-teak/80">{events.wedding.description}</p>
                             <div className="mt-6 flex flex-col gap-3 sm:flex-row justify-between">
                                 <a
@@ -197,8 +219,12 @@ export default function Home() {
                     <div className="glass-panel neon-outline cyber-frame stark-panel relative overflow-hidden rounded-[2rem] p-5 sm:p-7">
                         <div className="absolute inset-0 bg-mesh-grid bg-[length:32px_32px] opacity-20" />
                         <div className="text-center">
-                            <p className="text-xs font-semibold uppercase tracking-[0.42em] text-cyan/80 sm:text-sm">Countdown</p>
-                            <p className="mt-3 font-serif text-xl uppercase tracking-[0.1em] text-maroon sm:text-2xl">{events.wedding.dateText}</p>
+                            <p className="text-xs font-semibold uppercase tracking-[0.42em] text-cyan/80 sm:text-sm">
+                                Countdown
+                            </p>
+                            <p className="mt-3 font-serif text-xl uppercase tracking-[0.1em] text-maroon sm:text-2xl">
+                                {events.wedding.dateText}
+                            </p>
                         </div>
                         <div className="relative mx-auto mt-5 h-2 max-w-3xl overflow-hidden rounded-full border border-cyan/20 bg-surface/40">
                             <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-cyan/10 via-cyan/70 to-gold/70 shadow-[0_0_24px_rgba(77,220,255,0.35)]" />
@@ -231,50 +257,31 @@ export default function Home() {
                                 ))}
                             </div>
                         )}
-
-                        {/* <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
-                            <a
-                                href={googleCalendarLink}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="rounded-full bg-maroon px-5 py-3 text-center text-sm font-semibold uppercase tracking-[0.18em] text-parchment transition hover:bg-maroon/90"
-                            >
-                                Add to Google Calendar
-                            </a>
-                            <button
-                                type="button"
-                                onClick={handleCalendarDownload}
-                                className="rounded-full border border-gold/30 bg-white/80 px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-maroon transition hover:bg-parchment"
-                            >
-                                Download Calendar File
-                            </button>
-                        </div> */}
                     </div>
                 </Reveal>
             </section>
 
             <section id="details" className="mx-auto max-w-6xl px-5">
-                <SectionHeader eyebrow="Wedding Details" title="A Cinematic Kerala Celebration" description={ceremony.intro} />
+                <SectionHeader
+                    eyebrow="Wedding Details"
+                    title="A Cinematic Kerala Celebration"
+                    description={ceremony.intro}
+                />
 
-                <div className="mt-10 grid gap-6 md:grid-cols-3 md:auto-rows-fr">
+                <div className="mt-10 grid gap-6 md:grid-cols-2 md:auto-rows-fr">
                     {detailCards.map((card) => (
                         <DetailCard key={card.key} {...card} className="h-full" />
                     ))}
                 </div>
             </section>
 
-            {/* <section className="mx-auto max-w-6xl px-5">
-                <SectionHeader
-                    eyebrow="Schedule"
-                    title="Wedding Day Timeline"
-                    description="A gentle flow of ceremonies, rituals, and celebration across the day."
-                />
-                <DetailCard {...scheduleCard} />
-            </section> */}
-
             <section className="mx-auto grid max-w-6xl items-center gap-8 px-5 sm:gap-12">
                 <div className="space-y-6">
-                    <SectionHeader eyebrow="Welcome" title="An Invitation with Signal and Soul" description={invitation.welcomeMessage} />
+                    <SectionHeader
+                        eyebrow="Welcome"
+                        title="An Invitation with Signal and Soul"
+                        description={invitation.welcomeMessage}
+                    />
                     <div className="grid gap-4 md:grid-cols-2 md:auto-rows-fr">
                         {welcomeCards.map((card) => (
                             <DetailCard key={card.key} {...card} className="h-full" />
@@ -287,7 +294,7 @@ export default function Home() {
                 <SectionHeader
                     eyebrow="Location"
                     title="Venue and Route"
-                    description="Temple-inspired venue with traditional lamps, gold accents, and floral arrangements."
+                    description="Elegant auditorium venue with spacious seating, ample parking, and a well-designed stage for the celebration."
                 />
                 <div className="grid gap-6 md:grid-cols-2 md:auto-rows-fr">
                     {venueCards.map((card) => (
